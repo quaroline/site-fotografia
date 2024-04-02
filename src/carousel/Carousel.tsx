@@ -50,22 +50,20 @@ const Carousel = () => {
   }, []);
 
   return (
-    <>
-      <div className='slideshow-container' key="slideshow">
-        {
-          images.map((image) => (
-          <>
-            <div className='carousel fade' key={`carousel${image.filename}`}>
-              <img src={`/img/${image.filename}.jpg`} alt={image.caption} key={`img${image.filename}`}/>
-            </div>
-            <br />
-            <div className='dots' key={`dots${image.filename}`}>
-              <span className='dot' key={`dot${image.filename}`}></span>
-            </div>
-          </>))
-        }
-      </div>
-    </>
+    <div className='slideshow-container' key="slideshow">
+      {
+        images.map((image) => (
+        <div key={`carousel${image.filename}`}>
+          <div className='carousel fade'>
+            <img src={`/img/${image.filename}.jpg`} alt={image.caption} key={`img${image.filename}`}/>
+          </div>
+          <br />
+          <div className='dots' key={`dots${image.filename}`}>
+            <span className='dot' key={`dot${image.filename}`}></span>
+          </div>
+        </div>))
+      }
+    </div>
   );
 };
 
