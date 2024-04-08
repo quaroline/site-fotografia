@@ -1,0 +1,29 @@
+#header {
+  position:fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99;
+
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+  text-align: center;
+}
+
+svg#logo {
+  width: 50vh;
+  
+  fill: #FFF;
+  transition: fill 200ms linear;
+}
+
+.scrolled {
+  svg#logo {
+    fill: #F37D27 !important;
+    transition: fill 200ms linear;
+  }
+  
+  background-color: white;
+}
