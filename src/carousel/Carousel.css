@@ -4,7 +4,7 @@
   width: 100vw;
 }
 
-#items {
+#carousel-items {
   display: flex;
   overflow-x: hidden;
   overflow-y: hidden;

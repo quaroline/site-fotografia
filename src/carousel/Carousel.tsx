@@ -17,11 +17,11 @@ const images = [
 
 const Carousel = () => {
   useEffect(() => {
-    const items = document.querySelector('#items') as HTMLElement;
+    const carouselItems = document.querySelector('#carouselItems') as HTMLElement;
 
-    if (!items) return;
+    if (!carouselItems) return;
 
-    items.addEventListener('wheel', scrollTo);
+    carouselItems.addEventListener('wheel', scrollTo);
   }, []);
 
   const scrollTo = (event) => {
@@ -30,19 +30,19 @@ const Carousel = () => {
     if (!['left', 'right'].includes(side))
       side = event.deltaY > 0 ? 'right' : 'left';
 
-    const items = document.querySelector('#items') as HTMLElement;
+    const carouselItems = document.querySelector('#carouselItems') as HTMLElement;
 
-    items.scrollBy(side == 'right' ? 300 : -300, 0);
+    carouselItems.scrollBy(side == 'right' ? 300 : -300, 0);
   }
 
   return (
     <div className='carousel-container' key='carousel-container'>
-      <div id="items">
+      <div id="carousel-items">
         {
           images.map((image) => 
             <div key={`div-img-${image.filename}`} className={`item ${image.isPortrait ? 'portrait' : ''}`}>
               <img 
-                src={`/img/${image.filename}.jpg`} 
+                src={`/img/carousel/${image.filename}.jpg`} 
                 alt={image.caption} 
                 title={image.caption} 
                 key={`img-${image.filename}`} 
