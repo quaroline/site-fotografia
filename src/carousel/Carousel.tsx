@@ -17,7 +17,7 @@ const images = [
 
 const Carousel = () => {
   useEffect(() => {
-    const carouselItems = document.querySelector('#carouselItems') as HTMLElement;
+    const carouselItems = document.querySelector('#carousel-items') as HTMLElement;
 
     if (!carouselItems) return;
 
@@ -30,7 +30,7 @@ const Carousel = () => {
     if (!['left', 'right'].includes(side))
       side = event.deltaY > 0 ? 'right' : 'left';
 
-    const carouselItems = document.querySelector('#carouselItems') as HTMLElement;
+    const carouselItems = document.querySelector('#carousel-items') as HTMLElement;
 
     carouselItems.scrollBy(side == 'right' ? 300 : -300, 0);
   }
