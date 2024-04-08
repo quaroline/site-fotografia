@@ -1,4 +1,4 @@
-svg {
+svg:not(#logo) {
   color: #E8AE68;
   width: 2.5rem;
   cursor: pointer;
