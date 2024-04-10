@@ -1,5 +1,4 @@
 #header {
-  position:fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -15,7 +14,7 @@
 svg#logo {
   width: 50vh;
   
-  fill: #FFF;
+  fill: #F37D27;
   transition: fill 200ms linear;
 }
 

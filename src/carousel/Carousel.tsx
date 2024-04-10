@@ -2,18 +2,18 @@ import { useEffect } from 'react';
 import './Carousel.css';
 
 const images = [
-  { filename: 1, caption: 'Mão de criança segurando uma flor amarela' },
-  { filename: 2, caption: 'Criança em campo de flores amarelas' },
-  { filename: 3, caption: 'Criança com braços abertos' },
   { filename: 4, caption: 'Pai e filho na beira do mar' },
-  { filename: 5, caption: 'Criança no parque de diversões' },
-  { filename: 6, caption: 'Pés de criança' },
+  { filename: 1, caption: 'Mão de criança segurando uma flor amarela' },
+  { filename: 3, caption: 'Criança com braços abertos' },
   { filename: 7, caption: 'Criança olhando séria para a câmera com bico e pulseira rastafari', isPortrait: true },
   { filename: 8, caption: 'Criança olhando para o lado e rindo com as mãos no rosto', isPortrait: true },
   { filename: 9, caption: 'Pai segurando recém-nascido perto de uma janela', isPortrait: true },
   { filename: 10, caption: 'Bebê pequeno deitado em uma cama com a bola do estúdio Pixar', isPortrait: true },
   { filename: 11, caption: 'Mãe alternativa segurando recém-nascido enquanto seca o cabelo', isPortrait: true },
-].sort(() => Math.random() - 0.5);
+  { filename: 5, caption: 'Criança no parque de diversões' },
+  { filename: 2, caption: 'Criança em campo de flores amarelas' },
+  { filename: 6, caption: 'Pés de criança' },
+];
 
 const Carousel = () => {
   useEffect(() => {
@@ -22,6 +22,12 @@ const Carousel = () => {
     if (!carouselItems) return;
 
     carouselItems.addEventListener('wheel', scrollTo);
+
+    const interval = setInterval(() => {
+      console.log('Oi')
+    }, 2000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const scrollTo = (event) => {
@@ -32,7 +38,7 @@ const Carousel = () => {
 
     const carouselItems = document.querySelector('#carousel-items') as HTMLElement;
 
-    carouselItems.scrollBy(side == 'right' ? 300 : -300, 0);
+    carouselItems.scrollBy(side == 'right' ? 1200 : -1200, 0);
   }
 
   return (
