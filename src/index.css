@@ -3,19 +3,26 @@
 }
 
 html, body {
-  font-family: "Source Code Pro", monospace;
+  font-family: "tiffin-latin-variable", sans-serif;
+  font-variation-settings: "wght" 300;
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
+button {
+  font-family: "tiffin-latin-variable", sans-serif;
+  font-variation-settings: "wght" 300;
+  font-weight: 500;
+}
+ 
 a {
   cursor: pointer;
   text-decoration: none;
 }
 
 a:link {
-  color: #F37D27;
+  color: #AF5F6C;
 }
 
 a:visited, a:hover, a:active {

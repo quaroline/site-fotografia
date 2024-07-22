@@ -1,5 +1,34 @@
 svg:not(#logo) {
-  color: #E8AE68;
+  color: #af7b84;
   width: 2.5rem;
   cursor: pointer;
+}
+
+body {
+  cursor: default;
+  color: #191917;
+  font-size: 1.1rem;
+}
+
+::-moz-selection {
+  color: white;
+  background: #AF5F6C;
+}
+
+::selection {
+  color: white;
+  background: #AF5F6C;
+}
+
+hr {
+  background-color: #191917;
+}
+
+.container {
+  padding: 2.5rem 0 2.5rem 0;
+  font-weight: 400;
+  img { max-width: 35rem; }
+  p { padding: 0.5rem; }
+  h4 { display: inline-block; }
+  hr { margin-top: 0.2em !important; }
 }

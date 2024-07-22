@@ -14,13 +14,13 @@
 svg#logo {
   width: 50vh;
   
-  fill: #F37D27;
+  fill: #AF5F6C;
   transition: fill 200ms linear;
 }
 
 .scrolled {
   svg#logo {
-    fill: #F37D27 !important;
+    fill: #AF5F6C !important;
     transition: fill 200ms linear;
   }
   

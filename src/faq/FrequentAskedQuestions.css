@@ -1,0 +1,33 @@
+.questions {
+  color: #191917;
+  font-size: 1rem;
+}
+
+.collapsible {
+  background-color: #E8DACC;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-bottom: 0;
+}
+
+.active, .collapsible:hover {
+  background-color: #E0CDBA;
+}
+
+.content {
+  padding: 18px;
+  display: none;
+  overflow: hidden;
+  margin-right: -.5rem;
+  margin-left: .5rem;
+  background-color: #efe6dc;
+}
+
+#couple {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
