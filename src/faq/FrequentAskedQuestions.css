@@ -10,20 +10,29 @@
   width: 100%;
   border: none;
   outline: none;
-  margin-bottom: 0;
 }
+
+.mb-1 { margin: 0 0 .5rem 0!important; }
+.mb-0 { margin: 0 0 0 0!important; }
 
 .active, .collapsible:hover {
   background-color: #E0CDBA;
 }
 
+.answer {
+  margin-bottom: .5rem!important;
+}
+
 .content {
   padding: 18px;
-  display: none;
+  max-height: 0;
   overflow: hidden;
-  margin-right: -.5rem;
-  margin-left: .5rem;
   background-color: #efe6dc;
+  transition: max-height 0.2s ease-out;
+}
+
+.content.show {
+  overflow: visible; 
 }
 
 #couple {

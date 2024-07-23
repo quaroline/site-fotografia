@@ -30,23 +30,59 @@ const FrequentAskedQuestions = () => {
     }
   ];
 
-  useEffect(() => {
-    const collapsibles = document.getElementsByClassName('collapsible');
+  const collapsibles = document.getElementsByClassName('collapsible');
 
-    const changeAnswerDisplay = (event: Event) => {
-      if (!event?.target) return;
+  const changeAnswerDisplay = (event: Event) => {
+    if (!event?.target) return;
 
-      const element = event.target as HTMLElement;
+    const question = event.target as HTMLElement;
 
-      element.classList.toggle('active');
+    question.classList.toggle('active');
+    question.classList.toggle('mb-1');
+    question.classList.toggle('mb-0');
 
-      const content = element.nextElementSibling as HTMLElement;
+    const answer = question.nextElementSibling as HTMLElement;
 
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    if (answer.classList.contains('show')) {
+      answer.classList.remove('show');
+      answer.style.maxHeight = '0';
+    } else {
+      answer.classList.add('show');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
     }
 
+    closeRemainingCollapsibles(question);
+  }
+
+  const closeRemainingCollapsibles = (activeQuestion: HTMLElement) => {
+    for (let i = 0; i < collapsibles.length; i++) {
+      const question = collapsibles[i] as HTMLElement;
+
+      if (question && question.classList.contains('active') && question !== activeQuestion) {
+        question.classList.remove('active');
+        question.classList.toggle('mb-1');
+        question.classList.toggle('mb-0');
+
+        const answer = question.nextElementSibling as HTMLElement;
+
+        answer.classList.remove('show');
+        answer.style.maxHeight = '0';
+      }
+    }
+  }
+
+  useEffect(() => {
     for (let i = 0; i < collapsibles.length; i++) {
       collapsibles[i].addEventListener('click', changeAnswerDisplay);
+    }
+
+    const contents = document.getElementsByClassName('content');
+
+    for (let i = 0; i < contents.length; i++) {
+      const content = contents[i] as HTMLElement;
+
+      if (content.classList.contains('show')) 
+        content.style.maxHeight = content.scrollHeight + 'px';
     }
 
     return () => {
@@ -72,10 +108,10 @@ const FrequentAskedQuestions = () => {
           {
             questions.map((q, index) => 
               <div key={`div-faq-${index + 1}`} id={`div-faq-${index + 1}`}>
-                <div className='collapsible'>
+                <div className='collapsible mb-1'>
                   {q.question}
                 </div>
-                <div className={'content ' + (isMobile ? 'justify' : 'right')}>
+                <div className={'answer content ' + (isMobile ? 'justify' : 'right')}>
                   <span>
                     {q.answer}
                   </span>
