@@ -41,11 +41,11 @@ const Carousel = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const scrollTo = (event) => {
+  const scrollTo = (event: WheelEvent | string) => {
     let side = typeof event !== 'string' ? (event.target as HTMLElement).id : event;
 
     if (!['left', 'right'].includes(side))
-      side = event.deltaY > 0 ? 'right' : 'left';
+      side = (event as WheelEvent).deltaY > 0 ? 'right' : 'left';
 
     const carouselItems = document.querySelector('#carousel-items') as HTMLElement;
     const resolutionX = window.screen.availWidth;

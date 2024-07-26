@@ -1,6 +1,6 @@
 import './Footer.css';
 
-const openInstagram = () => window.open('https://www.instagram.com/padilhacarol.fotos', '_blank').focus();
+const openInstagram = () => window.open('https://www.instagram.com/padilhacarol.fotos', '_blank')!.focus();
 
 const Footer = () => {
   return (
