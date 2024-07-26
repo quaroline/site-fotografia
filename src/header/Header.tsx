@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <>
       <div id="header">
-        <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 802 115" xmlSpace="preserve">
+        <svg version="1.1" id="logo" xmlns="https://www.w3.org/2000/svg" xmlnsXlink="https://www.w3.org/1999/xlink" viewBox="0 0 802 115" xmlSpace="preserve">
           <path opacity="1.000000" stroke="none" 
             d="
             M337.959839,88.993134 
