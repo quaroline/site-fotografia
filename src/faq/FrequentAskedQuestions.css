@@ -24,15 +24,11 @@
 }
 
 .content {
-  padding: 18px;
-  max-height: 0;
+  padding: 0 18px;
   overflow: hidden;
   background-color: #efe6dc;
+  max-height: 0;
   transition: max-height 0.2s ease-out;
-}
-
-.content.show {
-  overflow: visible; 
 }
 
 #couple {

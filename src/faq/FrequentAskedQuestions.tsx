@@ -32,48 +32,53 @@ const FrequentAskedQuestions = () => {
 
   const collapsibles = document.getElementsByClassName('collapsible');
 
-  const changeAnswerDisplay = (event: Event) => {
+  const changeAnswerVisibility = (event: Event) => {
     if (!event?.target) return;
 
-    const question = event.target as HTMLElement;
+    const targetQuestion = event.target as HTMLElement;
 
-    question.classList.toggle('active');
-    question.classList.toggle('mb-1');
-    question.classList.toggle('mb-0');
+    changeQuestionCollapsibleVisibility(targetQuestion, targetQuestion.classList.contains('active'));
 
-    const answer = question.nextElementSibling as HTMLElement;
+    const collapsiblesExceptTarget = Array.from(collapsibles).filter((col) => col.id !== targetQuestion.id);
 
-    if (answer.classList.contains('show')) {
-      answer.classList.remove('show');
-      answer.style.maxHeight = '0';
-    } else {
-      answer.classList.add('show');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
+    for (let i = 0; i < collapsiblesExceptTarget.length; i++) {
+      const currentQuestion = collapsiblesExceptTarget[i] as HTMLElement;
+
+      changeQuestionCollapsibleVisibility(currentQuestion, true);
     }
-
-    closeRemainingCollapsibles(question);
   }
 
-  const closeRemainingCollapsibles = (activeQuestion: HTMLElement) => {
-    for (let i = 0; i < collapsibles.length; i++) {
-      const question = collapsibles[i] as HTMLElement;
+  const changeQuestionCollapsibleVisibility = (question: HTMLElement, isOpen: boolean) => {
+    let answerMaxHeight, answerPadding: string;
 
-      if (question && question.classList.contains('active') && question !== activeQuestion) {
-        question.classList.remove('active');
-        question.classList.toggle('mb-1');
-        question.classList.toggle('mb-0');
+    const defaultPadding = 18;
+    const answer = question.nextElementSibling as HTMLElement;
 
-        const answer = question.nextElementSibling as HTMLElement;
+    if (isOpen) {
+      question.classList.remove('active');
+      question.classList.remove('mb-0');
 
-        answer.classList.remove('show');
-        answer.style.maxHeight = '0';
-      }
+      question.classList.add('mb-1');
+
+      answerMaxHeight = '0';
+      answerPadding = `0 ${defaultPadding}px`;
+    } else {
+      question.classList.add('active');
+      question.classList.add('mb-0');
+
+      question.classList.remove('mb-1');
+
+      answerMaxHeight = `${answer.scrollHeight + (defaultPadding * 2)}px`;
+      answerPadding = `${defaultPadding}px`;
     }
+    
+    answer.style.padding = answerPadding;
+    answer.style.maxHeight = answerMaxHeight;
   }
 
   useEffect(() => {
     for (let i = 0; i < collapsibles.length; i++) {
-      collapsibles[i].addEventListener('click', changeAnswerDisplay);
+      collapsibles[i].addEventListener('click', changeAnswerVisibility);
     }
 
     const contents = document.getElementsByClassName('content');
@@ -81,13 +86,13 @@ const FrequentAskedQuestions = () => {
     for (let i = 0; i < contents.length; i++) {
       const content = contents[i] as HTMLElement;
 
-      if (content.classList.contains('show')) 
-        content.style.maxHeight = content.scrollHeight + 'px';
+      if (content.previousElementSibling?.classList.contains('active')) 
+        content.style.maxHeight = `${content.scrollHeight}px`;
     }
 
     return () => {
       for (let i = 0; i < collapsibles.length; i++)
-        collapsibles[i].removeEventListener('click', changeAnswerDisplay);
+        collapsibles[i].removeEventListener('click', changeAnswerVisibility);
     }
   }, []);
 
@@ -108,10 +113,10 @@ const FrequentAskedQuestions = () => {
           {
             questions.map((q, index) => 
               <div key={`div-faq-${index + 1}`} id={`div-faq-${index + 1}`}>
-                <div className='collapsible mb-1'>
+                <div className='collapsible mb-1' id={`question-${index + 1}`}>
                   {q.question}
                 </div>
-                <div className={'answer content ' + (isMobile ? 'justify' : 'right')}>
+                <div className={'answer content ' + (isMobile ? 'justify' : 'right')} id={`answer-${index + 1}`}>
                   <span>
                     {q.answer}
                   </span>
