@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './FrequentAskedQuestions.css';
 import { isMobile } from 'react-device-detect';
+import GetImageRelativePath from '../utils/getImageRelativePath';
 
 const FrequentAskedQuestions = () => {
   const questions = [
@@ -103,7 +104,7 @@ const FrequentAskedQuestions = () => {
       <div className="row">
         <div className="col-7 right">
           <img 
-            src='/img/home.jpg'
+            src={`${GetImageRelativePath()}home.jpg`}
             alt={caption} 
             title={caption} 
           />

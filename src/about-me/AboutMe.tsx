@@ -1,5 +1,6 @@
 import { isMobile } from 'react-device-detect';
 import './AboutMe.css';
+import GetImageRelativePath from '../utils/getImageRelativePath';
 
 const AboutMe = () => {
   const alt = "Autorretrato de Carolynne Padilha tomando chimarrão em um acampamento em Nova Petrópolis/RS.";
@@ -35,7 +36,7 @@ const AboutMe = () => {
             </div>
           </div>
           <div className='col-5 left'>
-            <img src='/img/carolynne.jpg' alt={alt} title={alt}/>
+            <img src={`${GetImageRelativePath()}carolynne.jpg`} alt={alt} title={alt}/>
           </div>
         </div>
       </div>

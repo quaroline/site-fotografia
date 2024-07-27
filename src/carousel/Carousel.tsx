@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './Carousel.css';
 import { isMobile } from 'react-device-detect';
+import GetImageRelativePath from './../utils/getImageRelativePath';
 
 const images = [
   { filename: 1, caption: 'Mão de criança segurando uma flor amarela' },
@@ -54,13 +55,13 @@ const Carousel = () => {
   }
 
   return (
-    <div className='carousel-container' key='carousel-container'>
+    <div id='carousel-container' key='carousel-container'>
       <div id="carousel-items">
         {
           images.map((image) => 
             <div key={`div-img-${image.filename}`} className={`item ${!isMobile && image.isPortrait ? 'portrait' : ''}`}>
               <img 
-                src={`/img/carousel/${image.filename}.jpg`} 
+                src={`${GetImageRelativePath()}carousel/${image.filename}.jpg`} 
                 alt={image.caption} 
                 title={image.caption} 
                 key={`img-${image.filename}`} 
