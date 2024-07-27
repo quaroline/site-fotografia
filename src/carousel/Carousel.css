@@ -1,9 +1,5 @@
 *{ margin: 0; padding: 0; box-sizing: border-box; }
 
-#carousel-container {
-  width: 100vw;
-}
-
 #carousel-items {
   display: flex;
   overflow-x: hidden;
