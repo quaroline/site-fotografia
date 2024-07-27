@@ -1,7 +1,7 @@
 {
   "homepage": "https://quaroline.github.io/site-fotografia",
   "name": "site-fotografia",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
