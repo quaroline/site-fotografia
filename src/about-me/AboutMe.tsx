@@ -1,6 +1,6 @@
 import { isMobile } from 'react-device-detect';
 import './AboutMe.css';
-import GetImageRelativePath from '../utils/getImageRelativePath';
+import { GetImageRelativePath } from '../utils/string';
 
 const AboutMe = () => {
   const alt = "Autorretrato de Carolynne Padilha tomando chimarrão em um acampamento em Nova Petrópolis/RS.";
@@ -32,6 +32,11 @@ const AboutMe = () => {
                 <i>Sou confiada</i> a guardar e permitir reviver momentos como o sorriso no rosto da criança ao tirar foto com 
                 os avôs, a leveza de uma mãe ao fazer carinho na barriga de grávida, o deslumbre no olhar de um cão para com seus 
                 donos.
+              </p>
+              <p>
+                <a href="https://wa.me/5554991242249?text=Oi%2C%20tudo%20bem%3F%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20ensaio%20fotogr%C3%A1fico.%20Podemos%20falar%20mais%3F%20%3A%29">
+                  Quer um orçamento? Clica aqui e vamos nos conhecer! 💛
+                </a>
               </p>
             </div>
           </div>

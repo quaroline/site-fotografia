@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './Carousel.css';
 import { isMobile } from 'react-device-detect';
-import GetImageRelativePath from './../utils/getImageRelativePath';
+import { GetImageRelativePath } from '../utils/string';
 
 const images = [
   { filename: 1, caption: 'Mão de criança segurando uma flor amarela' },

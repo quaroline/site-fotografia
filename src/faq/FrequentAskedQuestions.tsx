@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './FrequentAskedQuestions.css';
 import { isMobile } from 'react-device-detect';
-import GetImageRelativePath from '../utils/getImageRelativePath';
+import { GetImageRelativePath } from '../utils/string';
 
 const FrequentAskedQuestions = () => {
   const questions = [
