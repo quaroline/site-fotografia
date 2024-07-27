@@ -1,0 +1,26 @@
+.image {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+  background-size: cover; 
+  position: absolute;
+  animation: xfade 15s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+#mobile-carousel {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+@keyframes xfade {
+  0% {opacity: 0;}
+  20% {opacity: 1;}
+  33% {opacity: 1;}
+  53% {opacity: 0;}
+  100% {opacity: 0;}
+}

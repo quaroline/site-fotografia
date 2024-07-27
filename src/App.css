@@ -1,3 +1,5 @@
+* { width: 100hv; }
+
 svg:not(#logo) {
   color: #af7b84;
   width: 2.5rem;
