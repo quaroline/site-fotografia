@@ -25,6 +25,7 @@ const images = [
   { filename: 19, caption: 'Mulher se curvando para conversar no mesmo nível que criança', isPortrait: true },
   { filename: 20, caption: 'Mulher em um estacionamento', isPortrait: true },
   { filename: 21, caption: 'Mulher sentada em uma antiga carteira escolar', isPortrait: true },
+  { filename: 22, caption: 'Idosa sentada junto à mesa de café', isPortrait: true }
 ];
 
 const Carousel = () => {
